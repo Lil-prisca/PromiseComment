@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Graduate&display=swap");
+
+:root {
+  --primary: #f7cfe2; /* Soft Blossom Pink */
+  --secondary: #f2a7c0; /* Rose Pink */
+  --accent: #d4af37; /* Metallic Gold */
+  --bg: #fff8f9; /* Blush White */
+  --text-dark: #3a2e2e; /* Warm Deep Brown */
+  --text-light: #ffffff;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-dark);
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+}
+
+.header {
+  font-family: "Graduate", serif;
+  font-size: 30px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: var(--primary);
+}
+.comment-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.leftside {
+  width: 20%;
+  height: fit-content;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 8px;
+  background-color: var(--secondary);
+  color: var(--text-dark);
+}
+
+.cw-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: #fff;
+  color: var(--text-dark);
+}
+
+.rightside {
+  /* switch to grid so items form rows/columns automatically */
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(220px, 1fr);
+  width: 70%;
+
+  align-items: stretch;
+  margin: 10px auto;
+  padding: 10px;
+  border: 5px solid var(--accent);
+  background-color: rgba(255, 248, 249, 0.85);
+
+  border-radius: 20px;
+}
+.cw-button {
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: var(--text-dark);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.comment-box {
+  width: 100%;
+  min-height: fit-content;
+  /* height: fit-content; */
+  box-sizing: border-box;
+  padding: 12px;
+  background-color: var(--text-dark);
+  border-radius: 12px;
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* size control */
+  min-height: 80px; /* at least this tall */
+  max-height: 220px; /* prevent overly tall cards */
+  overflow: hidden;
+}
+
+/* scroll only the message area when content is long */
+.comment-box p:first-of-type {
+  margin: 0 0 8px 0;
+  /* allow message to wrap and scroll if too long */
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-y: auto;
+  scrollbar-width: none;
+  /* let message grow and then scroll inside max-height */
+  max-height: 140px;
+}
+
+/* optional: ensure name/footer sits at bottom and doesn't scroll */
+.commeenter_name {
+  margin: 8px 0 0 0;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1200px) {
+  .rightside {
+    grid-template-columns: repeat(4, 1fr); /* 4 per row on wide screens */
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  .rightside {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row on medium */
+  }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .rightside {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on small */
+  }
+}
+@media (max-width: 599px) {
+  .rightside {
+    grid-template-columns: 1fr; /* 1 per row on narrow */
+  }
+}
+.commeenter_name {
+  align-items: right;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .comment-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .leftside,
+  .rightside {
+    width: 90%;
+    margin: 10px 0;
+  }
+}
