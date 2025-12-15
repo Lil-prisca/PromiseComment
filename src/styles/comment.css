@@ -41,6 +41,23 @@ body {
   color: var(--text-dark);
 }
 
+.cw-input[type="color"] {
+  /* padding: 0; */
+  /* width: 60px; */
+  height: 45px;
+  /* border: none; */
+  cursor: pointer;
+}
+
+.cw-input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.cw-input[type="color"]::-webkit-color-swatch {
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
 .cw-input {
   width: 100%;
   padding: 12px;
@@ -115,6 +132,67 @@ body {
   margin: 8px 0 0 0;
   font-weight: bold;
   flex-shrink: 0;
+}
+
+/* Pagination styles */
+.rightside .pagination {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  padding: 12px 8px;
+  grid-column: 1 / -1; /* span full grid row when inside .rightside grid */
+  width: 100%;
+}
+
+.page-btn {
+  background-color: var(--accent);
+  color: var(--text-dark);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.page-btn:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(20%);
+  box-shadow: none;
+}
+
+.page-info {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Responsive: stack controls on narrow screens */
+@media (max-width: 480px) {
+  .rightside .pagination {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 0;
+  }
+  .page-info {
+    order: 3;
+  }
 }
 
 @media (min-width: 1200px) {
