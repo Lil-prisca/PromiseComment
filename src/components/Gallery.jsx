@@ -6,7 +6,7 @@ import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
 import pic5 from "../assets/pic5.jpg";
 import pic6 from "../assets/pic6.jpg";
-import pic7 from "../assets/pic7.jpg";
+// import pic7 from "../assets/pic7.jpg";
 import video1 from "../assets/VID-20251215-WA0016.mp4";
 import video2 from "../assets/VID-20251215-WA0024.mp4";
 
@@ -63,7 +63,6 @@ const Gallery = () => {
         <div className="gallery-item">
           <img src={pic3} alt="" />
         </div>
-
         {/* <div className="gallery-item"></div> */}
       </div>
     </>
